@@ -34,12 +34,12 @@ const transcriptYoutubeVideo = async (videoUrl) => {
 
       return plainText;
     } else {
-      console.log("Legendas não disponíveis para este vídeo.");
+      console.log("Caption track not found.");
 
       return null;
     }
   } catch (error) {
-    console.error("Erro ao baixar legendas:", error);
+    console.error("Error fetching transcript:", error);
 
     return null;
   }

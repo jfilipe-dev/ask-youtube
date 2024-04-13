@@ -29,7 +29,7 @@ const rl = readline.createInterface({
 
 const start = async () => {
   rl.question("Youtube URL: ", async (youtubeURL) => {
-    console.log("Fazendo transcricão do video... ");
+    console.log("Transcribing video... ");
     const videoTranscribed = await transcriptYoutubeVideo(youtubeURL);
 
     if (!videoTranscribed) {
@@ -86,7 +86,7 @@ const start = async () => {
     const chat_history = [];
 
     function askQuestion() {
-      rl.question("\nPergunta: ", async (question) => {
+      rl.question("\nQuestion: ", async (question) => {
         if (question === "0") {
           rl.close();
           return;
@@ -100,7 +100,7 @@ const start = async () => {
         chat_history.push(new HumanMessage(question));
         chat_history.push(new AIMessage(result.answer));
 
-        console.log("Resposta: ",result.answer);
+        console.log("Answer: ",result.answer);
 
         askQuestion();
       });
